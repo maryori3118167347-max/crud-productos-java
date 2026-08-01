@@ -16,12 +16,20 @@ public class CrudProductos {
             throw new IllegalArgumentException("El nombre es obligatorio.");
         }
 
+        if (nombre.trim().length() > 100) {
+            throw new IllegalArgumentException("El nombre no puede tener más de 100 caracteres.");
+        }
+
         if (categoria == null || categoria.trim().isEmpty()) {
             throw new IllegalArgumentException("La categoría es obligatoria.");
         }
 
         if (precio < 0) {
             throw new IllegalArgumentException("El precio no puede ser negativo.");
+        }
+
+        if (precio > 1_000_000) {
+            throw new IllegalArgumentException("El precio parece demasiado alto, verifica el valor.");
         }
 
         if (stock < 0) {
@@ -67,12 +75,20 @@ public class CrudProductos {
             throw new IllegalArgumentException("El nombre es obligatorio.");
         }
 
+        if (nombre.trim().length() > 100) {
+            throw new IllegalArgumentException("El nombre no puede tener más de 100 caracteres.");
+        }
+
         if (categoria == null || categoria.trim().isEmpty()) {
             throw new IllegalArgumentException("La categoría es obligatoria.");
         }
 
         if (precio < 0 || stock < 0) {
             throw new IllegalArgumentException("El precio y el stock no pueden ser negativos.");
+        }
+
+        if (precio > 1_000_000) {
+            throw new IllegalArgumentException("El precio parece demasiado alto, verifica el valor.");
         }
 
         producto.setNombre(nombre);
